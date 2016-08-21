@@ -1,4 +1,4 @@
-package com.triangule;
+package com.triangule.model;
 
 public enum TrianguleTypes {
 	EQUILATERAL, 

@@ -9,6 +9,8 @@ import org.junit.Test;
 
 import com.triangule.controller.TrianguleController;
 import com.triangule.exception.TrianguleException;
+import com.triangule.model.Triangule;
+import com.triangule.model.TrianguleTypes;
 
 import junit.framework.Assert;
 
