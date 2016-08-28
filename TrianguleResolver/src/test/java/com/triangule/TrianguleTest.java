@@ -3,8 +3,6 @@ package com.triangule;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import com.triangule.controller.TrianguleController;
@@ -16,45 +14,11 @@ import junit.framework.Assert;
 
 public class TrianguleTest {
 
-	Triangule triangule;
-	TrianguleController controller;
-
-	@Before
-	public void setUp() throws Exception {
-		this.triangule = new Triangule();
-		this.controller = new TrianguleController();
-
-	}
+	Triangule triangule= new Triangule();
+	TrianguleController controller = new TrianguleController();
 
 	@Test
-	public void test() throws Exception {
-	
-		testEquilateral();
-		testIsosceles();
-		testScalene();
-		testSizeSides();
-
-	}
-
-	@After
-	public void tearDown() {
-		Assert.assertNotNull(triangule);
-		Assert.assertEquals(triangule.getSides().size(), 3);
-		Assert.assertTrue(contains(triangule.getType().toString()));
-	}
-
-	public static boolean contains(String test) {
-
-		for (TrianguleTypes c : TrianguleTypes.values()) {
-			if (c.name().equals(test)) {
-				return true;
-			}
-		}
-
-		return false;
-	}
-	
-	private void testScalene() throws Exception {
+	public void shouldBeScalene() throws Exception {
 		List<Double> sides = new ArrayList<Double>();
 		sides.add(15D);
 		sides.add(14D);
@@ -67,7 +31,8 @@ public class TrianguleTest {
 		Assert.assertTrue(triangule.getType().equals(TrianguleTypes.SCALENE));
 	}
 
-	private void testIsosceles() throws Exception {
+	@Test
+	public void shouldBeIsosceles() throws Exception {
 		List<Double> sides = new ArrayList<Double>();
 		sides.add(15D);
 		sides.add(15D);
@@ -80,7 +45,8 @@ public class TrianguleTest {
 		Assert.assertTrue(triangule.getType().equals(TrianguleTypes.ISOSCELES));
 	}
 
-	private void testEquilateral() throws Exception {
+	@Test
+	public void shouldBeEquilateral() throws Exception {
 		List<Double> sides = new ArrayList<Double>();
 		sides.add(15d);
 		sides.add(15d);
@@ -94,7 +60,8 @@ public class TrianguleTest {
 
 	}
 	
-	private void testSizeSides(){
+	@Test
+	public void shouldBeSides(){
 		List<Double> sides = new ArrayList<Double>();
 		sides.add(15d);
 		sides.add(15d);
@@ -107,6 +74,17 @@ public class TrianguleTest {
 			Assert.assertEquals(e.getClass(), TrianguleException.class);
 		}
 		
+	}
+	
+	public static boolean contains(String test) {
+
+		for (TrianguleTypes c : TrianguleTypes.values()) {
+			if (c.name().equals(test)) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 }
