@@ -1,13 +1,9 @@
 package com.triangule.controller;
 
-import org.springframework.stereotype.Controller;
-
 import com.triangule.model.Triangule;
 import com.triangule.model.TrianguleTypes;
 
-@Controller
 public class TrianguleController {
-
 
 	public void calculateType(Triangule triangule) {
 		double size1 = triangule.getSides().get(0);
@@ -21,9 +17,4 @@ public class TrianguleController {
 		} else
 			triangule.setType(TrianguleTypes.SCALENE);
 	}
-	
-    public static void main(String[] args) {
-		
-	}
-	
 }
